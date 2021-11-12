@@ -4,8 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-token = 
+token = access_token
 client = discord.Client()
+import os
 
 @client.event
 async def on_ready():
@@ -69,5 +70,5 @@ async def on_message(message):
         await message.channel.purge(limit=number)
         await message.channel.send(f"{number}개의 메세지 삭제 완료!")
    
-        
-client.run(token)
+access_token = os.environ["BOT_token"]        
+client.run(access_token)
